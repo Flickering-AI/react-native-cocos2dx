@@ -1,7 +1,7 @@
 {
   "name": "react-native-cocos2dx",
   "version": "0.1.0",
-  "description": "Add cocos2d on react native project. implemented using JSI",
+  "description": "Add cocos2d in your react native projects. implemented using JSI",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
