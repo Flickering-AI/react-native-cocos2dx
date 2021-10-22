@@ -204,7 +204,7 @@ dependencies {
         implementation jscFlavor
     }
 
-    implementation project(':reactnativecocos2dglview')
+    implementation project(':cocos2dx')
 }
 
 // Run this once to be able to run the application with BUCK

@@ -1,3 +1,5 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 buildscript {
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
   def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['Cocos2dGlview_kotlinVersion']
@@ -6,10 +8,13 @@ buildscript {
     google()
     mavenCentral()
     jcenter()
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.2.1'
+    classpath("com.android.tools.build:gradle:4.2.2")
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
@@ -26,16 +31,51 @@ def getExtOrIntegerDefault(name) {
   return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties['Cocos2dGlview_' + name]).toInteger()
 }
 
+def reactProperties = new Properties()
+def envProperties = new Properties()
+file("$projectDir/../node_modules/react-native/ReactAndroid/gradle.properties").withInputStream { reactProperties.load(it) }
+file("${project.rootDir}/../.env").withInputStream { envProperties.load(it) }
+def REACT_VERSION = reactProperties.getProperty("VERSION_NAME")
+def COCOS_BUILD_PATH = envProperties.getProperty("COCOS_BUILD_PATH")
 android {
   compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
   defaultConfig {
-    minSdkVersion 16
+    minSdkVersion 21
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
     versionCode 1
-    versionName "1.0"
-    
+    versionName "1.0.0"
+    externalNativeBuild {
+      ndkBuild {
+        targets 'cocos2djs', 'reactnativecocos2dx'
+        arguments 'NDK_TOOLCHAIN_VERSION=clang'
+        def module_paths = [
+          project.file("$COCOS_BUILD_PATH/jsb-default/frameworks/cocos2d-x"),
+          project.file("$COCOS_BUILD_PATH/jsb-default/frameworks/cocos2d-x/cocos"),
+          project.file("$COCOS_BUILD_PATH/jsb-default/frameworks/cocos2d-x/external"),
+        ]
+
+        arguments "NODE_MODULES_DIR=${rootDir}/../node_modules", "PROJECT_BUILD_DIR=$buildDir", "REACT_NATIVE_TARGET_VERSION=${REACT_VERSION}", "COCOS_BUILD_PATH=${COCOS_BUILD_PATH}"
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+          arguments 'NDK_MODULE_PATH=' + module_paths.join(";")
+        } else {
+          arguments 'NDK_MODULE_PATH=' + module_paths.join(':')
+        }
+        arguments '-j' + Runtime.runtime.availableProcessors()
+        abiFilters.addAll(PROP_APP_ABI.split(':').collect{it as String})
+      }
+    }
   }
-  
+
+  externalNativeBuild {
+    ndkBuild {
+      path "jni/Android.mk"
+    }
+  }
+
+  packagingOptions {
+    excludes = ["**/libc++_shared.so", "**/libfbjni.so", "**/libreactnativejni.so", "**/libjsi.so", "**/MANIFEST.MF"]
+  }
+
   buildTypes {
     release {
       minifyEnabled false
@@ -47,6 +87,11 @@ android {
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  configurations {
+    extractHeaders
+    extractJNI
   }
 }
 
@@ -124,7 +169,30 @@ repositories {
 def kotlin_version = getExtOrDefault('kotlinVersion')
 
 dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  def rnAAR = fileTree("${rootDir}/../node_modules/react-native/android").matching({ it.include "**/**/*.aar" }).singleFile
+  extractJNI(files(rnAAR))
+}
+
+task extractJNIFiles {
+  doLast {
+    configurations.extractJNI.files.each {
+      def file = it.absoluteFile
+
+      copy {
+        from zipTree(file)
+        into "$buildDir/$file.name"
+        include "jni/**/*"
+      }
+    }
+  }
+}
+tasks.whenTaskAdded { task ->
+  if (task.name == 'externalNativeBuildDebug' || task.name == 'externalNativeBuildRelease') {
+    task.dependsOn(extractJNIFiles)
+  }
 }

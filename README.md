@@ -1,22 +1,28 @@
-# react-native-cocos2d-glview
+# react-native-cocos2dx
 
-Cocos2dxGLView
+基于ReactNative JSI
 
 ## Installation
 
 ```sh
-npm install react-native-cocos2d-glview
+yarn add react-native-cocos2dx
 ```
 
 ## Usage
 
+Set your own `COCOS_BUILD_PATH` in `.env` file(which in the root of your React Native app)
+
 ```js
-import { Cocos2dGlviewView } from "react-native-cocos2d-glview";
+import { Cocos2dGlviewView } from 'react-native-cocos2dx';
 
 // ...
 
-<Cocos2dGlviewView color="tomato" />
+<View style={{ flex: 1 }}>
+  <Cocos2dxGLView />
+</View>;
 ```
+
+see ./example
 
 ## Contributing
 

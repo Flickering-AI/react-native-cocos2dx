@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-cocos2d-glview": ["./src/index"]
+      "react-native-cocos2dx": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

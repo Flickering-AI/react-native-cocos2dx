@@ -1,7 +1,7 @@
 {
-  "name": "react-native-cocos2d-glview",
+  "name": "react-native-cocos2dx",
   "version": "0.1.0",
-  "description": "Cocos2dxGLView",
+  "description": "Add cocos2d on react native project. implemented using JSI",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "react-native-cocos2d-glview.podspec",
+    "react-native-cocos2dx.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/lxp-git/react-native-cocos2d-glview",
+  "repository": "https://github.com/lxp-git/react-native-cocos2dx",
   "author": "Xuanping <a845326948@gmail.com> (https://github.com/lxp-git)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lxp-git/react-native-cocos2d-glview/issues"
+    "url": "https://github.com/lxp-git/react-native-cocos2dx/issues"
   },
-  "homepage": "https://github.com/lxp-git/react-native-cocos2d-glview#readme",
+  "homepage": "https://github.com/lxp-git/react-native-cocos2dx#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -52,7 +52,7 @@
     "@release-it/conventional-changelog": "^2.0.0",
     "@types/jest": "^26.0.0",
     "@types/react": "^16.9.19",
-    "@types/react-native": "0.62.13",
+    "@types/react-native": "^0.65.9",
     "commitlint": "^11.0.0",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^7.0.0",
@@ -61,11 +61,11 @@
     "jest": "^26.0.1",
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
-    "react": "16.13.1",
-    "react-native": "0.63.4",
     "react-native-builder-bob": "^0.18.0",
     "release-it": "^14.2.2",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "react": "17.0.2",
+    "react-native": "0.66.1"
   },
   "peerDependencies": {
     "react": "*",
