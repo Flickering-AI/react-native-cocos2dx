@@ -11,8 +11,13 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.JSIModulePackage;
+import com.facebook.react.bridge.JSIModuleSpec;
+import com.facebook.react.bridge.JavaScriptContextHolder;
+import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import com.xuanping.cocos2dx.Cocos2dxPackage;
 
@@ -38,7 +43,10 @@ public class MainApplication extends Application implements ReactApplication {
         @Nullable
         @Override
         protected JSIModulePackage getJSIModulePackage() {
-          return new Cocos2dxPackage();
+          return (reactApplicationContext, jsContext) -> {
+            new Cocos2dxPackage().getJSIModules(reactApplicationContext, jsContext);
+            return Collections.emptyList();
+          };
         }
 
         @Override

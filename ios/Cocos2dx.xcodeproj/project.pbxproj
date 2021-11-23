@@ -7,31 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		5E555C0D2413F4C50049A1A2 /* Cocos2dGlview.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* Cocos2dGlview.m */; };
-		F4FF95D7245B92E800C19C63 /*  Cocos2dGlview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /*  Cocos2dGlview.swift */; };
-
+		D85B543D273CF6CE0056FF8A /* Cocos2dxGLViewManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = D85B543B273CF6CE0056FF8A /* Cocos2dxGLViewManager.mm */; };
+		D85B543E273CF6CE0056FF8A /* Cocos2dxGLViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85B543C273CF6CE0056FF8A /* Cocos2dxGLViewManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D85B544F273CF7980056FF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D85B544A273CF7980056FF8A /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1551A33F158F2AB200E66CFE;
+			remoteInfo = "libcocos2d Mac";
+		};
+		D85B5451273CF7980056FF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D85B544A273CF7980056FF8A /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A07A4D641783777C0073F6A7;
+			remoteInfo = "libcocos2d iOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+		58B511D91A9E6C8500147676 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libCocos2dGlview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocos2dGlview.a; sourceTree = BUILT_PRODUCTS_DIR; };
-
-		B3E7B5891CC2AC0600A0062D /* Cocos2dGlview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cocos2dGlview.m; sourceTree = "<group>"; };
-		F4FF95D5245B92E700C19C63 /* Cocos2dGlview-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cocos2dGlview-Bridging-Header.h"; sourceTree = "<group>"; };
-		F4FF95D6245B92E800C19C63 /* Cocos2dGlview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocos2dGlview.swift; sourceTree = "<group>"; };
-
+		D85B543A273CF6CE0056FF8A /* Cocos2dx-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cocos2dx-Bridging-Header.h"; sourceTree = "<group>"; };
+		D85B543B273CF6CE0056FF8A /* Cocos2dxGLViewManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Cocos2dxGLViewManager.mm; sourceTree = "<group>"; };
+		D85B543C273CF6CE0056FF8A /* Cocos2dxGLViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cocos2dxGLViewManager.swift; sourceTree = "<group>"; };
+		D85B5449273CF7600056FF8A /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Classes; path = "../../../cocos/InitCocos246/build/jsb-default/frameworks/runtime-src/Classes"; sourceTree = "<group>"; };
+		D85B544A273CF7980056FF8A /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = "../../../cocos/InitCocos246/build/jsb-default/frameworks/cocos2d-x/build/cocos2d_libs.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,31 +72,40 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-
-				F4FF95D6245B92E800C19C63 /* Cocos2dGlview.swift */,
-				B3E7B5891CC2AC0600A0062D /* Cocos2dGlview.m */,
-				F4FF95D5245B92E700C19C63 /* Cocos2dGlview-Bridging-Header.h */,
-
+				D85B544A273CF7980056FF8A /* cocos2d_libs.xcodeproj */,
+				D85B5449273CF7600056FF8A /* Classes */,
+				D85B543A273CF6CE0056FF8A /* Cocos2dx-Bridging-Header.h */,
+				D85B543B273CF6CE0056FF8A /* Cocos2dxGLViewManager.mm */,
+				D85B543C273CF6CE0056FF8A /* Cocos2dxGLViewManager.swift */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		D85B544B273CF7980056FF8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D85B5450273CF7980056FF8A /* libcocos2d Mac.a */,
+				D85B5452273CF7980056FF8A /* libcocos2d iOS.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* Cocos2dGlview */ = {
+		58B511DA1A9E6C8500147676 /* Cocos2dx */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "Cocos2dGlview" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "Cocos2dx" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
-				58B511D91A9E6C8500147676 /* CopyFiles */,
+				58B511D91A9E6C8500147676 /* Copy Files */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Cocos2dGlview;
+			name = Cocos2dx;
 			productName = RCTDataManager;
 			productReference = 134814201AA4EA6300B7C361 /* libCocos2dGlview.a */;
 			productType = "com.apple.product-type.library.static";
@@ -99,7 +124,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "Cocos2dGlview" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "Cocos2dx" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -110,22 +135,43 @@
 			mainGroup = 58B511D21A9E6C8500147676;
 			productRefGroup = 58B511D21A9E6C8500147676;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D85B544B273CF7980056FF8A /* Products */;
+					ProjectRef = D85B544A273CF7980056FF8A /* cocos2d_libs.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				58B511DA1A9E6C8500147676 /* Cocos2dGlview */,
+				58B511DA1A9E6C8500147676 /* Cocos2dx */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D85B5450273CF7980056FF8A /* libcocos2d Mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d Mac.a";
+			remoteRef = D85B544F273CF7980056FF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D85B5452273CF7980056FF8A /* libcocos2d iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d iOS.a";
+			remoteRef = D85B5451273CF7980056FF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				F4FF95D7245B92E800C19C63 /* Cocos2dGlview.swift in Sources */,
-				B3E7B58A1CC2AC0600A0062D /* Cocos2dGlview.m in Sources */,
-
+				D85B543E273CF6CE0056FF8A /* Cocos2dxGLViewManager.swift in Sources */,
+				D85B543D273CF6CE0056FF8A /* Cocos2dxGLViewManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,11 +284,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Cocos2dGlview;
 				SKIP_INSTALL = YES;
-
-				SWIFT_OBJC_BRIDGING_HEADER = "Cocos2dGlview-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cocos2dx-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Debug;
 		};
@@ -259,17 +303,15 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Cocos2dGlview;
 				SKIP_INSTALL = YES;
-
-				SWIFT_OBJC_BRIDGING_HEADER = "Cocos2dGlview-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cocos2dx-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "Cocos2dGlview" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "Cocos2dx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -278,7 +320,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "Cocos2dGlview" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "Cocos2dx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,

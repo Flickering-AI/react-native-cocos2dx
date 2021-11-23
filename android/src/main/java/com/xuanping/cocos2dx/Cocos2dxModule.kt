@@ -35,10 +35,4 @@ class Cocos2dxModule: ReactContextBaseJavaModule() {
   }
 
   override fun getName(): String = "Cocos2dx"
-
-  @ReactMethod
-  fun evalString(javascriptString: String, promise: Promise) {
-    promise.resolve(Cocos2dxJavascriptJavaBridge.evalString(javascriptString))
-  }
-
 }

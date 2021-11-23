@@ -40,7 +40,8 @@ export default function App() {
           <Button
             onPress={() => {
               evalString({
-                javascriptString: "cc.postMessageToReactNative('success!')",
+                javascriptString:
+                  'cc.postMessageToReactNative(\'console.log("success!")\')',
               });
             }}
             title="get message from cocos"
